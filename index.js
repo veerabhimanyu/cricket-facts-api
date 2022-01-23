@@ -4,7 +4,8 @@ import crickFactsRoute from "./routes/facts.js";
 const app = express();
 app.use(bodyParser.json());
 
-const port = 8000;
+
+const port = process.env.PORT || '5000';
 
 app.use("/facts", crickFactsRoute);
 
@@ -13,5 +14,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is listening on http://localhost:${port}`);
+  console.log(`Server is listening on ${port}`);
 });
